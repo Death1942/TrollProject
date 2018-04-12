@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include <stdlib.h>
 
 class BaseCharacter
@@ -14,6 +13,7 @@ public:
 	int GetArmour();
 	int GetMinStatValue();
 	bool IsRanged();
+	virtual void SetUpCharacter();
 private:
 	int _health;
 

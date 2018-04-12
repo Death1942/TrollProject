@@ -1,44 +1,56 @@
 #include "ConfigManager.h"
 #include <sstream>
 #include <iostream>
-using namespace std;
+#include <fstream>
+#include "ConfigHelper.h"
+//using namespace std;
 
 ConfigManager::ConfigManager()
 {
+	ifstream fileToRead("test.config");
 	//Loads all the config values
-	istringstream file("test.config");
 	string line;
 
-	while (getline(file, line))
+	if (fileToRead.is_open())
 	{
-		istringstream lineValue(line);
-
-		string key;
-
-		if (getline(lineValue, key, '='))
+		while (getline(fileToRead, line))
 		{
-			string value;
-			if (getline(lineValue, value))
+			istringstream lineValue(line);
+
+			string key;
+
+			if (getline(lineValue, key, '='))
 			{
-				//new value is key, value
-				//need to match the key with one in code somehow
+				string value;
+				if (getline(lineValue, value))
+				{
+					//new value is key, value
+					//need to match the key with one in code somehow
+					_configData.insert(pair<string, string>(key, value));
+				}
 			}
-		}
+		}		
 	}
 
+	fileToRead.close();
 
+	string testKey = _configData[ConfigHelper::TotalTrollStats];
 }
 
 #pragma region Getters
 
 int ConfigManager::GetTotalTrollStats()
 {
-	return _totalTrollStats;
+	return stoi(_configData[ConfigHelper::TotalTrollStats]);
 }
 
 int ConfigManager::GetMinTrollStatValue()
-{
-	return _minTrollStatValue;
+{	
+	return stoi(_configData[ConfigHelper::MinTrollStatValue]);
 }
 
+int ConfigManager::GetTrollHealth()
+{
+	return stoi(_configData[ConfigHelper::TrollHealth]);
+}
 #pragma endregion

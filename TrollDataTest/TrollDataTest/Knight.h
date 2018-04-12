@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "BaseCharacter.h"
 
 class Knight :BaseCharacter

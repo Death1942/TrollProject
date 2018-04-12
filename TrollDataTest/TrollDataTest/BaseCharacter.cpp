@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "BaseCharacter.h"
 
 BaseCharacter::BaseCharacter()
@@ -54,6 +53,10 @@ int BaseCharacter::GetArmour()
 bool BaseCharacter::IsRanged()
 {
 	return _rangedAttack;
+}
+
+void BaseCharacter::SetUpCharacter()
+{
 }
 
 int BaseCharacter::GetMinStatValue()

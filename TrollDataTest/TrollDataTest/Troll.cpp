@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Troll.h"
 #include <fstream>
 
@@ -17,23 +16,23 @@ float Troll::GetHealRatio()
 	return _targetHealRatio;
 }
 
-void Troll::SetUpTroll()
+void Troll::SetUpCharacter(ConfigManager &currentManager)
 {
 	//Values to set up default stats for a troll
-	int totalStats = 100;
+	int totalStats = currentManager.GetTotalTrollStats();
 
-	SetMinStatValue(20);
+	SetMinStatValue(currentManager.GetMinTrollStatValue());
 
-	int armRandom = GetMinStatValue() + rand() % ((totalStats - 3 * GetMinStatValue()) + 1 - GetMinStatValue());
-	int dexRandom = GetMinStatValue() + rand() % (totalStats - armRandom) + 1 - GetMinStatValue();
+	int armRandom = GetMinStatValue() + rand() / (RAND_MAX / ((totalStats - (3 * GetMinStatValue()) - GetMinStatValue()) + 1));
+	int dexRandom = GetMinStatValue() + rand() / (RAND_MAX / ((totalStats - (3 * GetMinStatValue()) - armRandom) - GetMinStatValue()) + 1);
 
-	totalStats -= armRandom + dexRandom;
+	totalStats -= (armRandom + dexRandom);
 
 	SetArmour(armRandom);
 	SetDexterity(dexRandom);
 	SetStrength(totalStats);
 
-	SetHealth(100);
+	SetHealth(currentManager.GetTrollHealth());
 
 	SetRanged((rand() % 2) + 1);
 	_targetHealRatio = ((float)rand() / RAND_MAX);
