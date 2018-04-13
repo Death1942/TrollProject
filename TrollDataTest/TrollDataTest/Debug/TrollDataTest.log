@@ -1,2 +1,22 @@
-﻿  Troll.cpp
+﻿  stdafx.cpp
+  TrollDataTest.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\trolldatatest.cpp(16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Troll.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\randomhelper.h(7): warning C4091: 'static ': ignored on left of 'RandomHelper' when no variable is declared
+  SimulationManager.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\randomhelper.h(7): warning C4091: 'static ': ignored on left of 'RandomHelper' when no variable is declared
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\simulationmanager.cpp(95): warning C4018: '<': signed/unsigned mismatch
+  RandomHelper.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\randomhelper.h(7): warning C4091: 'static ': ignored on left of 'RandomHelper' when no variable is declared
+  Knight.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\randomhelper.h(7): warning C4091: 'static ': ignored on left of 'RandomHelper' when no variable is declared
+  ConfigManager.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\confighelper.h(18): warning C4091: 'static ': ignored on left of 'ConfigHelper' when no variable is declared
+  ConfigHelper.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\confighelper.h(18): warning C4091: 'static ': ignored on left of 'ConfigHelper' when no variable is declared
+  BaseCharacter.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\basecharacter.cpp(11): warning C4552: '-': operator has no effect; expected operator with side-effect
+  Archer.cpp
+c:\users\chrish\documents\visual studio 2017\projects\trolldatatestrepo\trolldatatest\trolldatatest\randomhelper.h(7): warning C4091: 'static ': ignored on left of 'RandomHelper' when no variable is declared
+  Generating Code...
   TrollDataTest.vcxproj -> C:\Users\chrish\Documents\Visual Studio 2017\Projects\TrollDataTestRepo\TrollDataTest\Debug\TrollDataTest.exe

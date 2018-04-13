@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{aea9f212-e371-40d5-a0ea-996490f36562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CharacterFiles">
+      <UniqueIdentifier>{ac062d72-a54d-43b3-a2b2-a2a978fd16ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CharacterFiles">
+      <UniqueIdentifier>{89adb9e3-252e-4703-bd50-cc2de034f447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{2bb8f0ea-a8e5-4736-b1d1-c89936116481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{f39358ef-5391-4d5d-8837-0e5c8a0ebf73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{746e2393-5c57-4654-b1ee-8e72c4f917bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -22,19 +40,28 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseCharacter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Troll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Knight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConfigManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\CharacterFiles</Filter>
     </ClInclude>
     <ClInclude Include="ConfigHelper.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigManager.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Knight.h">
+      <Filter>Header Files\CharacterFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomHelper.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Troll.h">
+      <Filter>Header Files\CharacterFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Archer.h">
+      <Filter>Header Files\CharacterFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationManager.h">
+      <Filter>Header Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -45,16 +72,28 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BaseCharacter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CharacterFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>Source Files\CharacterFiles</Filter>
     </ClCompile>
     <ClCompile Include="Troll.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\CharacterFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomHelper.cpp">
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
     <ClCompile Include="ConfigManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
     <ClCompile Include="ConfigHelper.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Archer.cpp">
+      <Filter>Source Files\CharacterFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationManager.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

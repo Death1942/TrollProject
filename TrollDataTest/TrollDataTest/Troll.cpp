@@ -1,5 +1,6 @@
 #include "Troll.h"
 #include <fstream>
+#include "RandomHelper.h"
 
 Troll::Troll()
 {
@@ -20,11 +21,16 @@ void Troll::SetUpCharacter(ConfigManager &currentManager)
 {
 	//Values to set up default stats for a troll
 	int totalStats = currentManager.GetTotalTrollStats();
-
 	SetMinStatValue(currentManager.GetMinTrollStatValue());
 
-	int armRandom = GetMinStatValue() + rand() / (RAND_MAX / ((totalStats - (3 * GetMinStatValue()) - GetMinStatValue()) + 1));
-	int dexRandom = GetMinStatValue() + rand() / (RAND_MAX / ((totalStats - (3 * GetMinStatValue()) - armRandom) - GetMinStatValue()) + 1);
+	int MinRangeValue = GetMinStatValue();
+	//Only account for 2 min values because we are already calculating the 3rd
+	int MaxRangeValue = totalStats - (2 * GetMinStatValue());
+
+	int armRandom = RandomHelper::GetRandom(MaxRangeValue, MinRangeValue);
+
+	//Can't use random helper below as we have custom logic for two min values
+	int dexRandom = rand() % ((MaxRangeValue - armRandom) + 1) + MinRangeValue;
 
 	totalStats -= (armRandom + dexRandom);
 
@@ -34,6 +40,28 @@ void Troll::SetUpCharacter(ConfigManager &currentManager)
 
 	SetHealth(currentManager.GetTrollHealth());
 
-	SetRanged((rand() % 2) + 1);
+	int ranged = RandomHelper::GetRandom(2, 1);
+
+	SetRanged(ranged == 1);
 	_targetHealRatio = ((float)rand() / RAND_MAX);
+}
+
+TrollStats Troll::GetStats()
+{
+	return _currentStats;
+}
+
+void Troll::UpdateKnightKillCount(int addValue)
+{
+	_currentStats.KnightKillCount += addValue;
+}
+
+void Troll::UpdateArcherKillCount(int addValue)
+{
+	_currentStats.ArcherKilLCount += addValue;
+}
+
+void Troll::UpdateRoundsSurvived(int addValue)
+{
+	_currentStats.RoundsSurvived += addValue;
 }

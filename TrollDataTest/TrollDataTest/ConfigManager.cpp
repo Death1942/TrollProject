@@ -3,7 +3,11 @@
 #include <iostream>
 #include <fstream>
 #include "ConfigHelper.h"
-//using namespace std;
+
+ConfigManager::~ConfigManager()
+{
+	_configData.clear();
+}
 
 ConfigManager::ConfigManager()
 {
@@ -39,6 +43,7 @@ ConfigManager::ConfigManager()
 
 #pragma region Getters
 
+//Troll
 int ConfigManager::GetTotalTrollStats()
 {
 	return stoi(_configData[ConfigHelper::TotalTrollStats]);
@@ -52,5 +57,37 @@ int ConfigManager::GetMinTrollStatValue()
 int ConfigManager::GetTrollHealth()
 {
 	return stoi(_configData[ConfigHelper::TrollHealth]);
+}
+
+//Knight
+int ConfigManager::GetTotalKnightStats()
+{
+	return stoi(_configData[ConfigHelper::TotalKnightStats]);
+}
+
+int ConfigManager::GetMinKnightStatValue()
+{
+	return stoi(_configData[ConfigHelper::MinKnightStatValue]);
+}
+
+int ConfigManager::GetKnightHealth()
+{
+	return stoi(_configData[ConfigHelper::KnightHealth]);
+}
+
+//Archer
+int ConfigManager::GetTotalArcherStats()
+{
+	return stoi(_configData[ConfigHelper::TotalArcherStats]);
+}
+
+int ConfigManager::GetMinArcherStatValue()
+{
+	return stoi(_configData[ConfigHelper::MinArcherStatValue]);
+}
+
+int ConfigManager::GetArcherHealth()
+{
+	return stoi(_configData[ConfigHelper::ArcherHealth]);
 }
 #pragma endregion
