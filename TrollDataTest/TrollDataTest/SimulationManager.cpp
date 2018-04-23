@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <time.h>
+#include <thread>
 using namespace std;
 
 SimulationManager::SimulationManager()
@@ -13,7 +14,7 @@ SimulationManager::SimulationManager()
 
 SimulationManager::SimulationManager(ConfigManager & currentManager)
 {
-	_configManager = currentManager;
+	_configManager = &currentManager;
 }
 
 SimulationManager::~SimulationManager()
@@ -110,12 +111,44 @@ void SimulationManager::SaveSimulationRun()
 void SimulationManager::RunGeneration()
 {
 	//Generate trolls
+	for (int i = 0; i < _numberOfTrollsPerGeneration; ++i)
+	{
+		Troll newTroll;
+		newTroll.SetUpCharacter(*_configManager);
+		_trolls.push_back(newTroll);
+	}
 
 	//Generate Knights
 
 	//Generate Archers
 
-	//Run combats for each troll
+	//Run 10 combats for each troll
+	for (int i = 0; i < 10; ++i)
+	{
+		for each (Troll troll in _trolls)
+		{
+			thread newThread(&SimulationManager::RunCombat, &troll);
+		}
+	}
 
 	//Finish generation
+}
+
+void SimulationManager::RunCombat(Troll* trollToUse)
+{
+	vector<BaseCharacter> combatants;
+
+	//Generate new knights and archers for each combat
+	for (int i = 0; i < 2; ++i)
+	{
+		Knight newKnight;
+		newKnight.SetUpCharacter(*_configManager);
+		combatants.push_back(newKnight);
+
+		Archer newArcher;
+		newArcher.SetUpCharacter(*_configManager);
+
+		combatants.push_back(newArcher);
+	}
+
 }

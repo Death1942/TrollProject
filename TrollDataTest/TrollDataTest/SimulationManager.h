@@ -18,11 +18,13 @@ private:
 	vector<Archer> _archers;
 	vector<Troll> _trolls;
 	vector<Knight> _knights;
-	ConfigManager _configManager;
+	ConfigManager* _configManager;
 	void ClearScreen();
 	void SaveSimulationRun();
 	void RunGeneration();
+	void RunCombat(Troll* trollToUse);
 
 	int _numberOfGenerations;
 	int _numberOfTrollsPerGeneration;
+
 };
