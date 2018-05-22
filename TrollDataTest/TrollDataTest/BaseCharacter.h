@@ -1,11 +1,12 @@
 #pragma once
 #include <stdlib.h>
+#include "CharacterEnum.h"
 
 class BaseCharacter
 {
 public:
 	BaseCharacter();
-	BaseCharacter(int strength, int dexterity, int armour, int health, bool isRanged);
+	BaseCharacter(int strength, int dexterity, int armour, int health, bool isRanged, CharacterType type);
 	void ChangeHealth(int valueToChangeBy);
 	int GetHealth();
 	int GetStrength();
@@ -14,6 +15,7 @@ public:
 	int GetMinStatValue();
 	bool IsRanged();
 	virtual void SetUpCharacter();
+	CharacterType Type;
 private:
 	int _health;
 

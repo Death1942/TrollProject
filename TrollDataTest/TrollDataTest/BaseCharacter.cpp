@@ -4,13 +4,14 @@ BaseCharacter::BaseCharacter()
 {
 }
 
-BaseCharacter::BaseCharacter(int strength, int dexterity, int armour, int health, bool isRanged)
+BaseCharacter::BaseCharacter(int strength, int dexterity, int armour, int health, bool isRanged, CharacterType type)
 {
 	_health = health;
 	_strength = strength;
-	_dexterity - dexterity;
+	_dexterity = dexterity;
 	_armour = armour;
 	_rangedAttack = isRanged;
+	Type = type;
 }
 
 

@@ -33,4 +33,6 @@ void Archer::SetUpCharacter(ConfigManager & currentManager)
 	SetHealth(currentManager.GetArcherHealth());
 
 	SetRanged(true);
+
+	this->Type = CharacterType::c_Archer;
 }

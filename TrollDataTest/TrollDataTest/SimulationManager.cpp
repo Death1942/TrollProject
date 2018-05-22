@@ -151,4 +151,94 @@ void SimulationManager::RunCombat(Troll* trollToUse)
 		combatants.push_back(newArcher);
 	}
 
+	SimulationManager::CombatRound(trollToUse, &combatants);
+}
+
+void SimulationManager::CombatRound(Troll* trollToUse, vector<BaseCharacter>* combatants)
+{
+	float trollArmourRatio = trollToUse->GetArmour() / 100;
+
+	//Each character gets to swing at the troll
+	for each (BaseCharacter character in *combatants)
+	{
+		int strength = character.GetStrength();
+		int finalDamageValue = (int)(strength - (strength * trollArmourRatio));
+
+		trollToUse->ChangeHealth(finalDamageValue);
+	}
+
+	//Troll picks a target
+	BaseCharacter targetCharacter;
+	vector<BaseCharacter> rangedCharacters;
+	vector<BaseCharacter> meleeCharacters;
+
+	for each(BaseCharacter character in *combatants)
+	{
+		//Only count alive characters
+		if (character.GetHealth() > 0)
+		{
+			if (character.IsRanged())
+			{
+				rangedCharacters.push_back(character);
+			}
+			else
+			{
+				meleeCharacters.push_back(character);
+			}
+		}
+	}
+
+	//Ranged can hit any character at any time
+	if (trollToUse->IsRanged())
+	{
+		int randomIndex = RandomHelper::GetRandom(combatants->size(), 0);
+		targetCharacter = combatants->at(randomIndex);
+	}
+	else
+	{
+		//Melee trolls have to kill knights first
+		if (meleeCharacters.size() > 0)
+		{
+			int randomIndex = RandomHelper::GetRandom(meleeCharacters.size(), 0);
+			targetCharacter = combatants->at(randomIndex);
+		}
+		else
+		{
+			int randomIndex = RandomHelper::GetRandom(rangedCharacters.size(), 0);
+			targetCharacter = combatants->at(randomIndex);
+		}
+	}
+
+	
+	//Swings and does damage
+	float armourDampener = targetCharacter.GetArmour() / 100 * 0.5f;
+	targetCharacter.ChangeHealth((int) trollToUse->GetStrength() * armourDampener);
+
+	//If we kill the target, update the counts
+	if (targetCharacter.GetHealth() <= 0)
+	{
+		switch (targetCharacter.Type)
+		{
+			case CharacterType::c_Archer:
+			{
+				trollToUse->UpdateArcherKillCount(1);
+				break;
+			}
+			case CharacterType::c_Knight:
+			{
+				trollToUse->UpdateKnightKillCount(1);
+				break;
+			}
+		}
+	}
+
+	if (trollToUse->GetHealth() > 0)
+	{
+		trollToUse->UpdateRoundsSurvived(1);
+
+		if (trollToUse->GetHealRatio() <= trollToUse->GetHealth() / 100)
+		{
+			trollToUse->ChangeHealth(20);
+		}
+	}
 }

@@ -7,7 +7,7 @@ Troll::Troll()
 
 }
 
-Troll::Troll(int strength, int dexterity, int armour, int health, float healthRatio, bool isRanged):BaseCharacter(strength, dexterity, armour, health, isRanged)
+Troll::Troll(int strength, int dexterity, int armour, int health, float healthRatio, bool isRanged)
 {
 	_targetHealRatio = healthRatio;
 }
@@ -44,6 +44,7 @@ void Troll::SetUpCharacter(ConfigManager &currentManager)
 
 	SetRanged(ranged == 1);
 	_targetHealRatio = ((float)rand() / RAND_MAX);
+	this->Type = CharacterType::c_Troll;
 }
 
 TrollStats Troll::GetStats()

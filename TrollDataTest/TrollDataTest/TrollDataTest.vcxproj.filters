@@ -63,6 +63,9 @@
     <ClInclude Include="SimulationManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterEnum.h">
+      <Filter>Header Files\CharacterFiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

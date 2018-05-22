@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Archer.h" />
     <ClInclude Include="BaseCharacter.h" />
+    <ClInclude Include="CharacterEnum.h" />
     <ClInclude Include="ConfigHelper.h" />
     <ClInclude Include="ConfigManager.h" />
     <ClInclude Include="Knight.h" />

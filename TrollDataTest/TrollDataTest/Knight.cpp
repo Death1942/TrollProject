@@ -33,4 +33,5 @@ void Knight::SetUpCharacter(ConfigManager &currentManager)
 	SetHealth(currentManager.GetKnightHealth());
 
 	SetRanged(false);
+	this->Type = CharacterType::c_Knight;
 }

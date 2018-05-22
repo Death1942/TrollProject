@@ -23,6 +23,7 @@ private:
 	void SaveSimulationRun();
 	void RunGeneration();
 	void RunCombat(Troll* trollToUse);
+	void CombatRound(Troll* trollToUse, vector<BaseCharacter>* combatants);
 
 	int _numberOfGenerations;
 	int _numberOfTrollsPerGeneration;
